@@ -66,12 +66,34 @@ export default function Home() {
               <label className="block text-gray-700 font-bold mb-2">사업 아이디어 (아이디어 입력 → 진단받기 클릭 → 결과 확인)</label>
               <textarea value={businessIdea} onChange={(e) => setBusinessIdea(e.target.value)} className="w-full px-4 py-3 border rounded-lg h-64" required />
             </div>
-            <button type="submit" disabled={loading} className="w-full bg-red-600 text-white font-bold py-4 px-6 rounded-lg">
-              {loading ? '분석 중...' : '진단 받기'}
+            <button type="submit" disabled={loading} className="w-full bg-red-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2">
+              {loading ? (
+                <>
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  분석 중...
+                </>
+              ) : '진단 받기'}
             </button>
           </form>
         </div>
-        {analysis && (
+
+        {loading && (
+          <div className="bg-white rounded-lg shadow-xl p-8 text-center">
+            <div className="flex justify-center mb-4">
+              <svg className="animate-spin h-12 w-12 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">🔍 AI가 사업계획서를 분석하고 있습니다</h3>
+            <p className="text-gray-600">잠시만 기다려주세요 (약 10-20초 소요)</p>
+          </div>
+        )}
+
+        {analysis && !loading && (
           <div className="bg-white rounded-lg shadow-xl p-8">
             <h2 className="text-2xl font-bold mb-4">진단 결과</h2>
             <div className="whitespace-pre-wrap">{analysis}</div>
