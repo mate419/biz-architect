@@ -25,6 +25,11 @@ export default function Home() {
       const data = await response.json();
       if (data.analysis) {
         setAnalysis(data.analysis);
+        // 폼 초기화
+        setName('');
+        setEmail('');
+        setPhone('');
+        setBusinessIdea('');
       } else {
         alert('분석 중 오류가 발생했습니다.');
       }
@@ -58,7 +63,7 @@ export default function Home() {
               <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 border rounded-lg" required />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-700 font-bold mb-2">사업 아이디어 (아이디어 입력 → 진단하기 클릭 → 결과 확인)</label>
+              <label className="block text-gray-700 font-bold mb-2">사업 아이디어 (아이디어 입력 → 진단받기 클릭 → 결과 확인)</label>
               <textarea value={businessIdea} onChange={(e) => setBusinessIdea(e.target.value)} className="w-full px-4 py-3 border rounded-lg h-64" required />
             </div>
             <button type="submit" disabled={loading} className="w-full bg-red-600 text-white font-bold py-4 px-6 rounded-lg">
