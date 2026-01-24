@@ -63,8 +63,16 @@ export default function Home() {
               <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 border rounded-lg" required />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-700 font-bold mb-2">사업 아이디어 (아이디어 입력 → 진단받기 클릭 → 결과 확인)</label>
-              <textarea value={businessIdea} onChange={(e) => setBusinessIdea(e.target.value)} className="w-full px-4 py-3 border rounded-lg h-64" required />
+              <label className="block text-gray-700 font-bold mb-2">사업 아이디어</label>
+              <textarea 
+                value={businessIdea} 
+                onChange={(e) => setBusinessIdea(e.target.value)} 
+                className="w-full px-4 py-3 border rounded-lg h-64" 
+                placeholder="당신의 기술이 '돈이 되는 비즈니스 언어'인지 심사합니다.
+
+평가받을 내용을 입력해 주세요."
+                required 
+              />
             </div>
             <button type="submit" disabled={loading} className="w-full bg-red-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2">
               {loading ? (
