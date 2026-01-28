@@ -46,7 +46,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4">비즈니스 아키텍트</h1>
-          <p className="text-xl text-gray-300">정부지원사업 사업계획서 구조 진단</p>
+          <p className="text-xl text-gray-300">AI 사업계획 구조 진단 (전문가 심사 전 필수)</p>
         </div>
         <div className="bg-white rounded-lg shadow-xl p-8 mb-8">
           <form onSubmit={handleSubmit}>
@@ -63,14 +63,12 @@ export default function Home() {
               <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 border rounded-lg" required />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-700 font-bold mb-2">사업 아이디어</label>
+              <label className="block text-gray-700 font-bold mb-2">사업 핵심 구조 및 내용</label>
               <textarea 
                 value={businessIdea} 
                 onChange={(e) => setBusinessIdea(e.target.value)} 
                 className="w-full px-4 py-3 border rounded-lg h-64" 
-                placeholder="당신의 기술이 '돈이 되는 비즈니스 언어'인지 심사합니다.
-
-평가받을 내용을 입력해 주세요."
+                placeholder="AI가 내용을 분석할 수 있도록, 아이디어와 수익 모델을 최대한 자세히 적어주세요."
                 required 
               />
             </div>
@@ -83,7 +81,7 @@ export default function Home() {
                   </svg>
                   분석 중...
                 </>
-              ) : '진단 받기'}
+              ) : 'AI 진단 실행'}
             </button>
           </form>
         </div>
