@@ -45,7 +45,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">비즈니스 아키텍트</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">Business Architect</h1>
           <p className="text-xl text-gray-300">AI 사업계획 구조 진단 (전문가 심사 전 필수)</p>
         </div>
         <div className="bg-white rounded-lg shadow-xl p-8 mb-8">
